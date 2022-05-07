@@ -1,0 +1,46 @@
+{% load static %}
+{% comment %} layout-homeหลัก {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="img/logo1.png" href="{% static "img/logo1.png"%}"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href = "{% static 'css/homenav.css' %}">
+  
+</head>
+ 
+<body>
+<nav class="navbar navbar-custom">
+  <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static "img/logo1.png"%} " alt="" width="30" height="30" class="d-inline-block align-text-top">
+            Thammasat University 
+          </a>     
+      <div class ="navbar-right">
+         <span> CIS - Cooperative Education Management </span>
+      </div>         
+  </div>
+</nav>
+
+<div class = "container">
+      {% block content %}
+
+      {% endblock %}
+</div>
+
+<footer>
+  <div class="text-center p-3 ">  
+      <p1>วิทยาลัยสหวิทยาการ มหาวิทยาลัยธรรมศาสตร์<br>
+      College of Interdisciplinary Studies, Thammasat University<br>
+      <div><a class ="footer-text" href="https://ci.tu.ac.th/"> https.//ci.tu.ac.th</a></div>
+      </p1>
+  </div>
+</footer> 
+
+</body>
+</html>

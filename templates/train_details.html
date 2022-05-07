@@ -1,0 +1,93 @@
+{% extends 'navbar.html'%}
+{% load static %}
+
+{% block content %}
+{%if user.is_authenticated %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CIS </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href = "{% static 'css/profile1.css' %}">
+</head>
+<body>
+<br>
+
+<div class="container rounded bg-white mt-5 mb-5">
+     <div>
+            <div class="p-3 py-5">
+                <div class='text-center'><h3> {{train.intstitute_name}} </h3></div>
+                <br>
+                <div class="row mt-2">
+                    <div class="d-flex justify-content-between align-items-center ">
+                    <span class="text-right"><b>ชื่อหลักสูตร</b></span>
+                    </div>
+                    <p> {{train.curriculum}} <br> (Cooperative and Work-Intergrated education, CWIE)</p>
+                    
+                    <div class="d-flex justify-content-between align-items-center ">
+                    <span class="text-right"><b>ชื่อสมาคม</b></span>
+                    </div>
+                    <p>{{train.intstitute_name}}</p>
+
+                    <div class="d-flex justify-content-between align-items-center ">
+                    <span class="text-right"><b>ช่วงของการอบรมคณาจารย์นิเทศ</b></span>
+                    </div>
+                    <p>{{train.datetime_event}} </p>
+
+                    <div class="d-flex justify-content-between align-items-center ">
+                    <span class="text-right"><b>วันที่เปิดรับสมัคร</b></span>
+                    </div>
+                    <p>{{train.start_apply}} </p>
+
+                    <div class="d-flex justify-content-between align-items-center ">
+                    <span class="text-right"><b>วันที่ปิดรับสมัคร</b></span>
+                    </div>
+                    <p>{{train.deadline_apply}} </p>
+
+                    <div class="d-flex justify-content-between align-items-center ">
+                    <span class="text-right"><b>ค่าสมัครอบรมคณาจารย์นิเทศ</b></span>
+                    </div>
+                    <p> {{train.cost}} / คน </p>
+
+                    <div class="d-flex justify-content-between align-items-center ">
+                    <span class="text-right"><b>จำนวนคนที่รับ</b></span>
+                    </div>
+                    <p> {{train.amount}} </p>
+
+                    <div class="d-flex justify-content-between align-items-center ">
+                    <span class="text-right"><b>ที่อยู่</b></span>
+                    </div>
+                    <p> {{contact.institute_number}}  {{contact.road}}   ซอย -{{contact.soi}}   {{contact.subdistrict}}   {{contact.district}}   {{contact.province}}   {{contact.postcode}} </p>
+
+                    <div class="d-flex justify-content-between align-items-center ">
+                    <span class="text-right"><b>เบอร์ติดต่อ</b></span>
+                    </div>
+                    <p> {{contact.institute_tel}}</p>
+
+                    <div class="d-flex justify-content-between align-items-center ">
+                    <span class="text-right"><b> Link การสมัคร</b></span>
+                    </div>
+                    <p><a href={{train.link_detail}} target="popup" > {{train.link_detail}}</a></p>
+                    
+                    <div class="d-flex justify-content-between align-items-center ">
+                    <span class="text-right"><b> Link กำหนดการอบรม</b></span>
+                    </div>
+                    <a href="{{agenda.agenda_link}}" target="popup" > {{agenda.agenda_link}} </a>
+   
+                </div>
+                
+               
+               
+                <div class="mt-5 text-center"><a href={% url 'train' %}><button class="btn btn-primary profile-button" type="button">ย้อนกลับ</button></a></div>
+            </div>
+        </div>
+</div>
+
+</body>
+</html>
+{%endif%}
+{% endblock %}

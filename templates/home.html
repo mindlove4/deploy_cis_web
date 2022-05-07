@@ -1,0 +1,61 @@
+{% extends 'navbar2.html'%}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>CIS HOME</title>
+    <link rel="stylesheet" href="{% static 'css/nicepage.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'css/Page-1.css' %}" media="screen">
+    <script class="u-script" type="text/javascript" src="{% static 'js/jquery.js' %}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{% static 'js/nicepage.js' %}" defer=""></script>
+    <meta name="generator" content="Nicepage 4.8.2, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+    } </script>
+
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Page 1">
+    <meta property="og:type" content="website">
+  </head>
+  
+<body class="u-body u-image u-xl-mode" style=" background-image: url"(&quot;img/home.jpg&quot;); background-repeat: no-repeat;">
+<div class = "container">
+    <section class="u-align-center u-clearfix u-image u-section-1" src="" id="carousel_642d" >
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-align-center-md u-align-center-sm u-align-left-lg u-align-left-xl u-align-left-xs u-custom-font u-text u-text-1">กรุณ​าเลื​อกรูปแบบในการเข้าสู่​ระบบ</p>
+        <div class="u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <div class="u-align-left u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <a href="#" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-custom-font u-radius-50 u-btn-1">นักเรียน</a>
+              </div>
+            </div>
+            <div class="u-align-left u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-2">
+                <a href="{% url 'teacher' %}" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-custom-font u-radius-50 u-btn-2">อาจารย์</a>
+              </div>
+            </div>
+            <div class="u-align-left u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-3">
+                <a href="#" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-1 u-custom-font u-radius-50 u-btn-3">เจ้าหน้าที่</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+</body>
+</html>
+{% endblock %}

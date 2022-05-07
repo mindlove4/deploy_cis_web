@@ -1,0 +1,82 @@
+{% extends 'navbar.html'%}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIS </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href = "{% static 'css/profile1.css' %}">
+</head>
+<body>
+  <div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="rounded-circle mt-5" width="150px" src="{{teacher.teacher_img.url}}">
+                <span class="font-weight-bold">01/2564</span>
+                <span class="text-black-50">{{ teacher.role }}</span>
+            </div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right"><b>แก้ไขประวัติส่วนตัว</b></h4>
+                </div>
+            <form action="" method="POST" enctype="multipart/form-data">
+                 {% csrf_token %}
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels">คำนำหน้าชื่อ</label><input  type="text" class="form-control" placeholder="นาย/นาง/นางสาว" value="{{teacher.teacher_prefix}}" name="prefix"></div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12"><label class="labels">ชื่อ</label><input  type="text" class="form-control" placeholder="ไม่ต้องใส่คำนำหน้า" value="{{teacher.teacher_firstname}}" name="first_name"></div>
+                    <div class="col-md-12"><label class="labels">นามสกุล</label><input  type="text" class="form-control" value="{{teacher.teacher_lastname}}" placeholder="" name="last_name"></div>
+                </div>
+                                              
+                <div class="row mt-3">
+                    <div class="d-flex justify-content-between align-items-center ">
+                    <span class="text-right"><b>ข้อมูลการติดต่อ</b></span>
+                    </div>
+                    <div class="col-md-12"><label class="labels">เบอร์ติดต่อ</label><input type="int" class="form-control" placeholder="0xxxxxxxxx" value="{{teacher.teacher_tel}}" name="teacher_tel" ></div>
+                    <div class="col-md-12"><label class="labels">E-mail</label><input  type="text" class="form-control" value="{{teacher.teacher_email}}" placeholder="xxx@dome.tu.ac.th" name="teacher_email"></div>
+                </div>
+                <div class="mt-5 text-center"><a href="/"><input type="submit" value="บันทึกข้อมูล" class="btn btn-primary profile-button"></a></div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="p-3 py-5">
+                {% comment %} <div class="d-flex justify-content-between align-items-center experience"><span>แก้ไขใบรับรอง</span></div><br> {% endcomment %}
+                <br>
+                <br>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">Upload Ceritficate</label>
+                        {% comment %} <div class="col-md-12"><img width="310px" src="{% static 'img/certificate.jpg' %}"></div> {% endcomment %}
+                        <input type="file" id="img" name="certificate" accept="image/*">
+                        {% comment %} <input type="submit"> {% endcomment %}
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">Upload Profile Picture</label>                        
+                        <input type="file" id="img" name="img" accept="image/*">
+                        {% comment %} <input type="submit"> {% endcomment %}
+                    </div>
+                </div>
+            </form>
+                {% comment %} <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">สถานะอาจจะไม่ใส่ fun</label><input type="text" class="form-control" placeholder="#unapproved" value=""></div> {% endcomment %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,32 @@
+body {
+    background: whitesmoke;
+}
+
+.card {
+    background-color: #cac3c4;
+    font-family: 'TUFont';
+}
+
+.log-bt {
+    background-color: #7a0d0d;
+    font-size: 14px;
+    font-family: 'TUFont';
+}
+
+.log-gg {
+    background-color: #ba848c;
+    font-size: 14px;
+    font-family: 'TUFont';
+}
+
+h2 {
+    color: #7a0d0d;
+    font-family: 'TUFont';
+}
+
+a {
+    color: black;
+    text-decoration:none;
+}
+
+@font-face { font-family: 'TUFont'; src: local('TUFont'), url('/static/fonts/TUFont.ttf') format('truetype'); } 

@@ -1,0 +1,90 @@
+{% extends 'navbar.html'%}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CIS </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href = "{% static 'css/profile1.css' %}">
+</head>
+<body>
+
+<br>
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                {% if student.student_img.url != None %}
+                <img class="rounded-circle mt-5" width="150px" src="{{ student.student_img.url }}">
+                {% else %}
+                <img class="rounded-circle mt-5" width="150px" src="{% static 'img/no_certificate.png' %}">
+                {% endif %}
+                <br>
+                <span class="font-weight-bold">{{student.student_id}}</span>
+                <span class="text-black-50">นักศึกษา</span>
+            </div>
+        </div>
+
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right"><b>ประวัติส่วนตัว</b></h4>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-12"><label class="labels">คำนำหน้าชื่อ : </label> <span>{{student.student_prefix}}</span></div>
+                    <div class="col-md-12"><label class="labels"> ชื่อ :</label>  <span> {{student.student_firstname}} </span></div>
+                    <div class="col-md-12"><label class="labels"> นามสกุล : </label>  <span>{{student.student_lastname}}</span></div>
+                </div>    
+             
+                <div class="row mt-3">
+                    <div class="d-flex justify-content-between align-items-center ">
+                    <span class="text-right"><b>ข้อมูลการติดต่อ</b></span>
+                    </div>
+                    <div class="col-md-12"><label class="labels">เบอร์ติดต่อ : </label> <span> {{student.student_tel}} </span></div>
+                    <div class="col-md-12"><label class="labels">E-mail : </label> <span>{{student.student_email}}</span></div>
+                </div>
+                
+                {% comment %} <div class="mt-5 text-center"><a href={% url 'edit' %}><button class="btn btn-primary profile-button" type="button" > แก้ไขประวัติส่วนตัว </button></a></div> {% endcomment %}
+            
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="p-3 py-5">
+                {% comment %} <div class="d-flex justify-content-between align-items-center experience"><span>แก้ไขใบรับรอง</span></div><br> {% endcomment %}
+                <br>
+                <br>
+                <div class="row mt-2"></div>
+                
+                <div class="row mt">
+                    <div class="col-md-12">
+                        <div class="d-flex justify-content-between align-items-center ">
+                        <span class="text-right"><b>ประวัติการศึกษา</b></span>
+                        </div>
+
+                        <div class="col-md-12"><label class="labels">ระดับปริญญา : </label> <span> {{student.education_level}}  </span></div>
+                        <div class="col-md-12"><label class="labels">ศูนย์ : </label> <span> {{student.campus}} </span></div>
+                        <div class="col-md-12"><label class="labels">คณะ : </label> <span> {{student.faculty}}</span></div>
+                        <div class="col-md-12"><label class="labels">สาขา : </label> <span>{{student.major}}</span></div>
+                        <div class="col-md-12"><label class="labels">ชั้นปีที่ศึกษา : </label> <span> {{student.year}} </span></div>
+                        <div class="col-md-12"><label class="labels">GPAX : </label> <span> {{student.gpax}} </span></div>
+                    </div>                                
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<br>
+
+</body>
+</html>
+{% endblock %}

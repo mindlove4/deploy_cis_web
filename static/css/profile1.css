@@ -1,0 +1,52 @@
+body {
+    background: #7a0d0d;
+    font-family: 'TUFont';
+}
+.form-control:focus {
+    box-shadow: none;
+    border-color: #ba848c
+}
+
+.profile-button {
+    background: #ba848c;
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #ba848c
+}
+
+.profile-button:focus {
+    background: #ba848c;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #ba848c;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #ba848c;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 14px;
+    font-family: 'TUFont';
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}
+
+a {
+    color: black;
+    text-decoration:none;
+}
+
+@font-face { font-family: 'TUFont'; src: local('TUFont'), url('/static/fonts/TUFont.ttf') format('truetype'); } 

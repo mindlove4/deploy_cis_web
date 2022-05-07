@@ -1,0 +1,89 @@
+{% extends 'navbar.html'%}
+{% load static %}
+
+{% block content %}
+{%if user.is_authenticated %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> My profile </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href = "{% static 'css/profile1.css' %}">
+</head>
+<body>
+
+
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="rounded-circle mt-5" width="150px" src="{{ teacher.teacher_img.url }}"> 
+                <br>
+                <span class="font-weight-bold">01/2564</span>
+                <span class="text-black-50">{{ teacher.role }}</span>
+            </div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right"><b>ประวัติส่วนตัว</b></h4>
+                </div>
+
+                    {% csrf_token %}
+                <div class="row mt-2">
+                    <div class="col-md-12"><label class="labels">คำนำหน้าชื่อ : </label> <span> {{teacher.teacher_prefix}} </span></div>
+            
+                    <div class="col-md-12"><label class="labels"> ชื่อ :</label>  <span> {{teacher.teacher_firstname}}</span></div>
+                    <div class="col-md-12"><label class="labels"> นามสกุล : </label>  <span>{{teacher.teacher_lastname}}</span></div>
+                </div>
+                
+                {% comment %} <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">บทบาทหน้าที่</label><input type="text" class="form-control" placeholder="#อาจารย์ของหลักสูตร" value=""></div>
+                    <div class="col-md-12"><label class="labels">สถานะ</label><input type="text" class="form-control" placeholder="#unapproved" value=""></div>                
+                </div> {% endcomment %}
+                
+                <div class="row mt-3">
+                    <div class="d-flex justify-content-between align-items-center ">
+                    <span class="text-right"><b>ข้อมูลการติดต่อ</b></span>
+                    </div>
+                    <div class="col-md-12"><label class="labels">เบอร์ติดต่อ : </label> <span>{{teacher.teacher_tel}} </span></div>
+                    <div class="col-md-12"><label class="labels">E-mail : </label> <span> {{teacher.teacher_email}} </span></div>
+                </div>
+                <div class="mt-5 text-center"><a href="{% url 'edit' teacher.id_card %}"><button class="btn btn-primary profile-button" type="button"> แก้ไขประวัติส่วนตัว</button></a></div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="p-3 py-5">
+                {% comment %} <div class="d-flex justify-content-between align-items-center experience"><span>แก้ไขใบรับรอง</span></div><br> {% endcomment %}
+                <div class="row mt-3"></div>
+                <div class="row mt-3"></div>
+                <div class="row mt-2"></div>
+                <div class="row mt">
+                    <div class="col-md-12"><label class="labels">Ceritficate</label>
+                    {% if teacher.certificate %}
+                        <div class="col-md-12"><img width="250px" src="{{ teacher.certificate.url }}"></div>
+                    {% else %}
+                        <div class="col-md-12"><img width="250px" src="{% static 'img/no_certificate.png' %}"></div>
+                    {% endif %}
+                    </div>
+                    <div class="row mt-3">
+                    {% comment %} <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text" class="form-control" placeholder="experience" value=""></div> <br> {% endcomment %}
+                        <div class="col-md-12"><label class="labels"> สถานะ : </label> <span>{{ status }}</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+{%endif%}
+
+</body>
+</html>
+{% endblock %}
