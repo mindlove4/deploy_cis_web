@@ -37,36 +37,48 @@ def login_teacher(request):
     return render(request,'login_teacher.html')
 
 def login(request):
-    username=request.POST['username']
-    password=request.POST['password']
-     #login
-    user=auth.authenticate(username=username,password=password)
-    if user is not None:
-        auth.login(request,user)
-        return redirect('/profile')
-    else:
-        messages.info(request,"Data not found please Try again")
-        return HttpResponse(password)
+    try:
+        username=request.POST['username']
+        password=request.POST['password']
+        #login
+        user=auth.authenticate(username=username,password=password)
+        if user is not None:
+            auth.login(request,user)
+            return redirect('/profile')
+        else:
+            a="username หรือ password ไม่ถูกต้อง"
+            return render(request,'login_teacher.html',{'a':a})
+    except:
+         return redirect('/login1')
+
 
 def logout(request):
     auth.logout(request)
     return redirect('/')
 
 def checkdome(request):
-    current_user=request.user
-    user_email=current_user.email
-    regex=r'^[A-Za-z0-9._%+-]+@dome.tu.ac.th$'
-    regex_2=r'^[A-Za-z0-9._%+-]+@staff.tu.ac.th$'
-    if(re.fullmatch(regex,user_email)):
-        return redirect('/profile')
-    elif(re.fullmatch(regex_2,user_email)):
-        return redirect('/profile')
-    else:
-        return HttpResponse('No valid')
+    try:
+        current_user=request.user
+        user_email=current_user.email
+        regex=r'^[A-Za-z0-9._%+-]+@dome.tu.ac.th$'
+        regex_2=r'^[A-Za-z0-9._%+-]+@staff.tu.ac.th$'
+        if(re.fullmatch(regex,user_email)):
+            return redirect('/profile')
+        elif(re.fullmatch(regex_2,user_email)):
+            return redirect('/profile')
+        else:
+            auth.logout(request)
+            a="กรุณา login ด้วย email ของทางมหาวิทยาลัย"
+            return render(request,'login_teacher.html',{'a':a})
+    except:
+        return redirect('/login1')
 
 def profile(request):
-    current_user=request.user
-    user_email=current_user.email
+    try:
+        current_user=request.user
+        user_email=current_user.email
+    except:
+        return redirect('/login1')
     try:
         current_teacher=Teacher.objects.get(teacher_id=current_user.username)
     except:
@@ -79,11 +91,12 @@ def profile(request):
         current_teacher
     except:
         auth.logout(request)
-        return HttpResponse('teacher data not found')
+        a="ไม่พบข้อมูลในระบบ"
+        return render(request,'login_teacher.html',{'a':a})
     status={0:"Unapprove",1:"Approve"}
     status_value=status[current_teacher.status]
-
     return render(request,'teacher_profile.html',{'teacher':current_teacher,'status':status_value})
+
     
 def edit_profile(request,pk):
     teacher = Teacher.objects.get(id_card=pk)
@@ -94,8 +107,8 @@ def edit_profile(request,pk):
                 try:     
                     os.remove(teacher.teacher_img.path)
                 except:
-                    pass
-            teacher.teacher_img = request.FILES['img']
+                    teacher.teacher_img = request.FILES['img']
+                teacher.teacher_img = request.FILES['img']
 
         except:
             pass
@@ -106,8 +119,8 @@ def edit_profile(request,pk):
                 try:     
                     os.remove(teacher.certificate.path)
                 except:
-                    pass
-            teacher.certificate = request.FILES['certificate']
+                    teacher.certificate = request.FILES['certificate']
+                teacher.certificate = request.FILES['certificate']
 
         except:
             pass
@@ -118,7 +131,7 @@ def edit_profile(request,pk):
         teacher.teacher_tel = request.POST.get('teacher_tel')
         teacher.teacher_email = request.POST.get('teacher_email')
         teacher.save()
-        messages.success(request, "Updated Successfully")
+        messages.info(request, "Updated ข้อมูลสำเร็จ")
         return redirect('/profile')
 
     context = {'teacher':teacher}

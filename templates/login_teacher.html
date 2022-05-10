@@ -25,6 +25,13 @@
             <form method="post" action="/login">
               {% csrf_token %}
             <h2 class="text-center mb-3 ">เข้าสู่ระบบ (อาจารย์)</h2>
+            {% if a %}
+              <ul >
+                  <li>
+                      {{ a }}
+                  </li>
+              </ul>
+            {% endif %}
             <div class="form-outline mb-4">
               <label class="form-label text-left" for="typePasswordX-2">เลขทะเบียนอาจารย์ / รหัสผู้ใช้</label>
               <input type="text" id="typeEmailX-2" class="form-control form-control-lg" name="username" />
