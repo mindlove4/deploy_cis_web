@@ -18,11 +18,6 @@ def home(request):
     return render(request,'home.html')
 
 
-def cishome1(request):
-    return render(request,'teacher_profile2.html') 
-    #หน้าป่าวยังไม่เชื่อม 
-
-
 def responsibiility(request):
     return render(request,'responsibiility.html')
 

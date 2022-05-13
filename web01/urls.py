@@ -30,7 +30,6 @@ urlpatterns = [
     path('profile/', views.profile),
     path('login2/', views.login_staff, name='staff'),
     path('login3/', views.login_student, name='student'),
-    path('home/', views.cishome1,  name='profile'),
     path('student_profile/<str:pk>', views.student_profile, name='student_profile'),
     path('responsibiility/', views.responsibiility, name='res'),
     path('accounts/', include('allauth.urls')),

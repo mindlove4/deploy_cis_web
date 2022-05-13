@@ -99,13 +99,13 @@
             </div>
           
             <div class="row third">                              
-                 <a href="{% url 'details' train.coop_train_id %}"><button class="btn btn-primary profile-button" type="button" style= "background-color: #BA848C">รายละอียดเพิ่มเติม</button></a></div>
+                 <a href="{% url 'details' train.coop_train_id %}"><button class="btn btn-primary profile-button" type="button" style= "background-color: #BA848C">รายละเอียดเพิ่มเติม</button></a></div>
               </div>
             </div>
-            
+            {% empty %}
           </div>
         </div>
-        {% empty %}
+       
         <div class="s009">
           <form>
             <div class="inner-form">
@@ -115,13 +115,12 @@
                     <div class="col-md-12"><label class="labels"> ชื่อหลักสูตร : </label> <span> ไม่มีข้อมูล </span></div>
                 </div>
                 </div>
-                
               </div>
             </div>
-        {% endfor %}
+            {% endfor %}
       </form>
     </div>
-     
+
 
     <script src="{% static 'js/extention/choices.js' %}"></script>
     <script>

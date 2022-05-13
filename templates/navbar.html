@@ -17,7 +17,7 @@
 <body>
 <nav class="navbar navbar-custom">
   <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'profile' %}">
+          <a class="navbar-brand" href="/profile">
             <img src="{% static "img/logo1.png"%} " alt="" width="30" height="30" class="d-inline-block align-text-top">
             CIS Cooperative Education Management
           </a> 
@@ -27,10 +27,10 @@
               Menu
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item " href="/profile">profile</a>
+              <a class="dropdown-item " href="/profile">ประวัติส่วนตัว</a>
               <a class="dropdown-item " href="{% url 'train' %}">ค้นหาอบรมคณาจารย์นิเทศ</a>
               <a class="dropdown-item " href="{% url 'res'%}">รายชื่อนักศึกษาทีรับผิดชอบ</a>
-              <a class="dropdown-item " href="/logout">logout</a>
+              <a class="dropdown-item " href="/logout">ออกจากระบบ</a>
             </div>
          </div>
       </div>         
