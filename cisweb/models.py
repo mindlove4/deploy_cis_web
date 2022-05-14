@@ -40,7 +40,7 @@ class Teacher(models.Model):
 class Student(models.Model):
     student_id= models.CharField(primary_key=True,max_length=255)
     user_id= models.ForeignKey(User, on_delete=models.CASCADE)
-    teacher_id= models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    teacher_id= models.ForeignKey(Teacher, on_delete=models.CASCADE,related_name="teacher")
     address_stu_id= models.ForeignKey(Address_Student, on_delete=models.CASCADE)
     student_prefix= models.CharField(max_length=10)
     student_firstname= models.CharField(max_length=255)

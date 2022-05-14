@@ -21,6 +21,7 @@ from django.conf.urls.static import static, serve
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
 from django.urls import re_path
+from cisweb.api import router
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -38,6 +39,7 @@ urlpatterns = [
     path('login',views.login),
     path('logout',views.logout),
     path('checkdome',views.checkdome),
+    path('api/',include(router.urls)),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
