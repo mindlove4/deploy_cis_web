@@ -28,7 +28,7 @@ class AgendaSerializer(serializers.ModelSerializer):
     def get_coop_train(self, obj):
         coop_train = {
             'coop_train_id': obj.coop_train_id.coop_train_id,
-            'intstitute_name': obj.coop_train_id.intstitute_name,
+            'curriculum': obj.coop_train_id.curriculum,
         }
         return coop_train
 

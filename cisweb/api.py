@@ -1,5 +1,4 @@
-from rest_framework import serializers,viewsets,routers
-from rest_framework.response import Response
+from rest_framework import viewsets,routers
 from .models import *
 from .serializer import *
 
